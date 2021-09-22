@@ -62,6 +62,7 @@ async function run() {
       core.setFailed("Failed to start a task in ECS: " + error.message);
       throw(error);
     }
+    console.log(taskResponse)
     const taskArn = taskResponse.tasks[0].taskArn;
     core.setOutput('task-arn', taskArn);
     const taskId = taskArn.split('/').pop();
